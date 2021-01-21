@@ -4,19 +4,11 @@ function solve(input) {
         [false, false, false],
         [false, false, false]
     ];
-    let player, counter = 0;
+    let player = 'X';
  
     for (let line of input) {
         [currRow, currCol] = line.split(' ').map(Number);
-
-        if(counter%2==0){
-
-            player = 'X';
-        }else{
-            player = 'O';
-        }
  
-        counter++;
         if (arr[currRow][currCol] !== false) {
             console.log('This place is already taken. Please choose another!');
             continue;
@@ -81,7 +73,7 @@ function solve(input) {
             return;
         }
  
-        
+        player = player === 'X' ? 'O' : 'X';
     }
  
     function printMatrix() {
@@ -90,6 +82,3 @@ function solve(input) {
         }
     }
 }
-
-solve(['0 1','0 0', '0 2',
-'2 0','1 0', '1 1','1 2', '2 2','2 1','0 0']);
